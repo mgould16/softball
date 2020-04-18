@@ -7,14 +7,57 @@
 
     <title>Softball</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      table, th, td {
+          border: 1px solid black;
+          border-collapse:collapse;
+      }
+      th, td {
+          padding: 5px;
+      }
+    </style>
   </head>
   <body>
 
+<!--     <script>
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("GET","http://bsf.spawtz.com/External/Fixtures/Feed.aspx?Type=Standings&LeagueId=9&SeasonId=34&DivisionId=662",false);
+    xmlhttp.send();
+    xmlDoc=xmlhttp.responseXML;
+
+    document.write("<table><tr><th colspan='2'>Server</th></tr>");
+    var x=xmlDoc.getElementsByTagName("Team");
+    console.log(x);
+    for (i=0;i<x.length;i++)
+    {
+        document.write("<tr><td>");
+        document.write(x[i].getElementsByTagName("Name")[0].attributes[1].value);
+        document.write("</td><td>");
+        document.write(x[i].getElementsByTagName("Name")[0].attributes[1].value);
+        document.write("</td></tr>");
+    }
+    document.write("</table>");
+</script> -->
+
+
+
     <!-- TODO: Put your HTML code in here -->
-    <div class="container">
-      <ul id="results" class="list-inline"></ul>
-      <ul id="news" class="list-inline"></ul>
-    </div>
+<!--     <div class="container">
+      <ul id="positionId"></ul>
+      <ul id="teamNameId"></ul>
+
+    <table id="MainTable">
+    <tbody id="BodyRows"></tbody>
+    </table>
+
+    </div> -->
     <script src="./lib/main.js"></script>
   </body>
 </html>
