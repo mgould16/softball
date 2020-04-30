@@ -7,6 +7,47 @@
     <title>Softball</title>
   </head>
   <body>
-    <script src="./lib/main.js"></script>
+    <div class="table-2">
+      <table width="100%">
+        <thead>
+          <tr>
+            <th align="left">Column 1</th>
+            <th align="left">Column 2</th>
+            <th align="left">Column 3</th>
+          </tr>
+          </thead>
+            <tbody id="results">
+            </tbody>
+        </table>
+      </div>
+    <script>
+const results = document.querySelector("#results");
+fetch("https://bsf.spawtz.com/External/Fixtures/Feed.aspx?Type=Standings&LeagueId=9&SeasonId=34&DivisionId=662")
+  .then(response => response.text())
+    .then((data) => {
+      let parser = new DOMParser(),
+      xml = parser.parseFromString(data,"text/xml");
+      console.log(xml.getElementsByTagName('Team'));
+      var teams = xml.getElementsByTagName('Team');
+      console.log(teams.length);
+      var team;
+      var position;
+      var points;
+      for(i = 0; i < teams.length; i++) {
+        position = teams[i].attributes[14].value;
+        team = teams[i].attributes[1].value;
+        points = teams[i].attributes[10].value;
+        console.log(team + " " + position);
+        const row = `<tr>
+                      <td align="left">${position}</td>
+                      <td align="left">${team}</td>
+                      <td align="left">${points}</td>
+                    </tr>`;
+        console.log(row);
+        var h = document.getElementById("results");
+        h.insertAdjacentHTML("beforeend", row);
+      };
+  });
+</script>
   </body>
 </html>
